@@ -1,0 +1,130 @@
+/**
+ * Given a nested list of integers, returns the sum of all integers in the list weighted by their reversed depth.
+ * For example, given the list {{1,1},2,{1,1}} the deepest level is 2. Thus the function should return 8 (four 1's with weight 1, one 2 with weight 2)
+ * Given the list {1,{4,{6}}} the function should return 17 (one 1 with weight 3, one 4 with weight 2, and one 6 with weight 1)
+ 
+    Ex #1: [{1,1},2,{1,1}]
+ 
+    () 2 () -> weight = 2
+    / \ /\
+    1 1 1 1 -> weight = 1
+     
+    2 * 2 + (1*1 + 1*1 + 1*1+ 1*1) = 8
+    
+    
+    Ex #2: Given the list {1,{4,{6}}} the function should return 17 
+    (one 1 with weight 3, one 4 with weight 2, and one 6 with weight 1)
+     
+    Ex 2: [{{6},4},1]
+    (), 1 -> weight = 3
+    |
+    (), 4 -> weight = 2
+    |
+    6 -> weight = 1
+*/
+public int reverseDepthSum (List<NestedInteger> input)
+{
+    ArrayList<ArrayList<int>> numbers = new ArrayList<ArrayList<int>>();
+    ArrayList<int> weights = new ArrayList<int>();
+    
+    for(int i = 0; i < input.length; i++)
+    {
+        int depth = 0;
+        if(isInteger(input.get(i)){
+            numbers.get(depth).add(input.get(i));
+        } else {
+            depth++;
+            
+        }
+    }
+    
+    calcSum(input, 0);
+    
+    // implementation here
+}
+
+public int calcSum (List<NestedInteger> input, int depth){
+    
+    if(isInteger(input.get(0)){
+    {
+        
+    }
+}
+ 
+/**
+ * This is the interface that represents nested lists.
+ * You should not implement it, or speculate about its implementation.
+ */
+public interface NestedInteger
+{
+    /** @return true if this NestedInteger holds a single integer, rather than a nested list */
+    boolean isInteger();
+ 
+    /** @return the single integer that this NestedInteger holds, if it holds a single integer
+     * Return null if this NestedInteger holds a nested list */
+    Integer getInteger();
+ 
+    /** @return the nested list that this NestedInteger holds, if it holds a nested list
+     * Return null if this NestedInteger holds a single integer */
+    List<NestedInteger> getList();
+}
+
+
+
+
+
+
+
+
+
+public interface TwoSum {
+    /**
+     * Stores @param input in an internal data structure.
+     */
+    void store(int input);
+ 
+    /**
+     * Returns true if there is any pair of numbers in the internal data structure which
+     * have sum @param val, and false otherwise.
+     * For example, if the numbers 1, -2, 3, and 6 had been stored,
+     * the method should return true for 4, -1, and 9, but false for 10, 5, and 0
+     */
+    boolean test(int val);
+}
+
+public class TwoSumImpl implements TwoSum{
+    HashSet storedInts = new Hashset();
+        
+    @override
+    void store(int input){
+        storedInts.add(input);    
+    }
+    
+    @override
+    boolean test(int val){
+        if(storedInts.size() < 2){
+           return false;   
+        }
+        
+        for(int i = 0; i < storedInts.size() - 1; i++)
+        {
+            int first = storedInts.get(i);
+            int valuetofind = val - first;
+            if(storedInts.get(valuetofind) != null)
+                return true;
+      
+        }
+        return false;
+    }
+
+}
+
+//store(1); 
+//test(1); --> false
+//store(4);
+//test(4); -> false
+//store(-2);
+//test(2) -> true (4 + (-2))
+//store(3); 
+//store(5); 
+//test(4); --> true (1 + 3)
